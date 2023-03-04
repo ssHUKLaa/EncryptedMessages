@@ -1,5 +1,6 @@
 import { useEffect, useState, useReducer } from 'react'
 import Gun from 'gun'
+import { BrowserRouter as Router } from 'react-router-dom'
 import {faker} from '@faker-js/faker'
 import './App.css'
 
@@ -88,7 +89,7 @@ return (
         <ul>
           {newMessagesArray().map((msg, index) => [
             <li key={index} className='message'>
-              <img alt='avatar' src={msg.avi} />
+              <img alt='avatar' src={'https://lh3.googleusercontent.com/ogw/AAEL6sgI6f52SZk0LclG50dWphPG30AofHTpbMhi4F-GEQ=s64-c-mo'} />
               <div>
                 {msg.content}
                 <span>{msg.name}</span>
