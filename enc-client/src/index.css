@@ -59,7 +59,7 @@ button:hover {
   max-width: 400px;
   display: flex;
   overflow-wrap: break-word;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .messages>ul {
