@@ -1,8 +1,9 @@
-import '.App.css'
 import { useEffect, useState, useReducer } from 'react'
 import Gun from 'gun'
-import faker from '@faker-js/faker'
-import './App.css';
+import {faker} from '@faker-js/faker'
+import './App.css'
+
+
 
 //were using port 5050
 const gun = Gun({
@@ -47,8 +48,8 @@ function App() {
     const refMessages = gun.get('MESSAGES')
 
     const msgObj = {
-      sender: faker.name.firstName(),
-      avatar: faker.image.avatar(),
+      name: faker.name.firstName(),
+      avi: faker.image.avatar(),
       content: messageText,
       timestamp: Date().substring(16, 21) //Date includes some worthless info, il play around w this tmrw
     }
@@ -56,6 +57,7 @@ function App() {
 
     setMessageText('')
   }
+ 
   
   // remove duplicate messages
   const newMessagesArray = () => {
@@ -76,19 +78,19 @@ function App() {
   return <div className="App">
     <main>
       <div className='messages'>
-        <ul> //renders out the msgs
-          {state.messages.map((msg, index) => [
+        <ul>
+          {newMessagesArray().map((msg, index) => [
             <li key={index} className='message'>
-              <img alt='avatar' src={msg.avatar} />
+              <img alt='avatar' src={msg.avi} />
               <div>
                 {msg.content}
-                <span>{msg.sender}</span>
+                <span>{msg.name}</span>
               </div>
             </li>
           ])}
         </ul>
       </div>
-      <div className='input-box'> //for typing
+      <div className='input-box'>
         <input placeholder='Type a message...' onChange={e => setMessageText(e.target.value)} value={messageText} />
         <button onClick={sendMessage}>Send</button>
       </div>
