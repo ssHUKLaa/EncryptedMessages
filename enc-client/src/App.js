@@ -3,7 +3,7 @@ import Gun from 'gun'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {faker} from '@faker-js/faker'
 import './App.css'
-
+import LoginForm from './Login'
 
 
 //were using port 5050
@@ -79,8 +79,8 @@ return <div className="App">
     <main>
       <div class = "navtop">
     <header>
-    <a class="cta" href = "#"><button class = "login">Login</button></a>
-    <a class="cta" href = "#"><button class = "signup">Sign Up</button></a>
+    <button onClick={LoginForm}>LogIn</button>
+    <button onClick={sendMessage}>Send</button>
     </header>
     </div>
       <div className='messages'>
@@ -90,14 +90,16 @@ return <div className="App">
               <img alt='avatar' src={'https://lh3.googleusercontent.com/ogw/AAEL6sgI6f52SZk0LclG50dWphPG30AofHTpbMhi4F-GEQ=s64-c-mo'} />
               <div>
                 {msg.content}
-                <span>{msg.name}</span>
+                <span>{msg.name}, {msg.timestamp}</span>
               </div>
             </li>
           ])}
         </ul>
       </div>
       <div className='input-box'>
-        <input placeholder='Type a message...' onChange={e => setMessageText(e.target.value)} value={messageText} />
+      <input placeholder='Type a message...' onChange={e => setMessageText(e.target.value)} value={messageText} onKeyDown={(e) => {
+          if (e.key === 'Enter') sendMessage()
+        }}/>
         <button onClick={sendMessage}>Send</button>
       </div>
     </main>
