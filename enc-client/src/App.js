@@ -79,8 +79,8 @@ return <div className="App">
     <main>
       <div class = "navtop">
     <header>
-    <button onClick={LoginForm}>LogIn</button>
-    <button onClick={sendMessage}>Send</button>
+    <button onClick={LoginForm}>Sign in</button>
+    <button onClick={sendMessage}>Log in</button>
     </header>
     </div>
       <div className='messages'>
