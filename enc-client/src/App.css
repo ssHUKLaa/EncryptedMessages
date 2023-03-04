@@ -40,6 +40,6 @@
   min-height: 10vh;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding-left: 65vh
-;
+  padding-left: 65%;
+  margin: 1%;
 }

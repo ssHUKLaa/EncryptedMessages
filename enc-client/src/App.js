@@ -80,8 +80,8 @@ return (
     <main>
       <div class = "navtop">
     <header>
-    <a class="cta" href = "#"><button class = "login">Login</button></a>
-    <a class="cta" href = "#"><button class = "signup">Sign Up</button></a>
+    <a class="cta" href = "#"><button class = "login">Sign Up</button></a>
+    <a class="cta" href = "#"><button class = "signup">Login</button></a>
     </header>
     </div>
       <div className='messages'>
