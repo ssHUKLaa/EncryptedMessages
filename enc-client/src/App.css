@@ -41,7 +41,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   padding-left: 65%;
+  margin: 1%;
   position: sticky;
   top: 10px;
-;
 }
