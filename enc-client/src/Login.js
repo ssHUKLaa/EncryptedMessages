@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -12,7 +12,7 @@ function LoginForm() {
     // Assume the server returns a JSON response with a boolean `success` field
     const success = true;
     if (success) {
-      history.push('/dashboard');
+      
     }
   }
 
