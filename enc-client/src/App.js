@@ -6,7 +6,7 @@ import './App.css'
 
 
 
-//were using port 5050
+//We're using port 5050
 const gun = Gun({
   peers: [
     'http://localhost:5050/gun'
@@ -99,7 +99,11 @@ return (
         </ul>
       </div>
       <div className='input-box'>
-        <input placeholder='Type a message...' onChange={e => setMessageText(e.target.value)} value={messageText} />
+        <input placeholder='Type a message...' onChange={e => setMessageText(e.target.value)} value={messageText} onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            sendMessage()
+          }
+        }}/>
         <button onClick={sendMessage}>Send</button>
       </div>
     </main>
