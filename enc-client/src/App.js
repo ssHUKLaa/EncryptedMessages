@@ -74,9 +74,7 @@ function App() {
     return formattedMessages
   }
 
-return (
-  <Router>
-    <div className="App">
+return <div className="App">
     <main>
       <div class = "navtop">
     <header>
@@ -103,8 +101,6 @@ return (
       </div>
     </main>
     </div>
-  </Router>
-  );
 }
 
 export default App
