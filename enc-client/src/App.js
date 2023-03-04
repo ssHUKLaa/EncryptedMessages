@@ -4,6 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import {faker} from '@faker-js/faker'
 import './App.css'
 import LoginForm from './Login'
+import SignUp from './signup'
+import { useNavigate, Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 
 
 //were using port 5050
@@ -23,11 +25,14 @@ const reducer = (state, message) => {
   }
 }
 
+function MyCustomButton({ children }) {
+  return <button>{children}</button>;
+}
+
 function App() {
   const [messageText, setMessageText] = useState('') //setters for initialization
   const [state, dispatch] = useReducer(reducer, currentState) //more setters
-
-
+  
   /*
   useEffect is loaded with the page, il change this shit to be less
   horribe l8r
@@ -44,6 +49,8 @@ function App() {
       })
     })
   }, [])
+
+  
 
   const sendMessage = () => { 
     const refMessages = gun.get('MESSAGES')
@@ -75,12 +82,29 @@ function App() {
     return formattedMessages
   }
 
-return <div className="App">
+
+return (
+  <div className="App">
     <main>
       <div class = "navtop">
     <header>
     <button onClick={LoginForm}>Sign in</button>
-    <button onClick={sendMessage}>Log in</button>
+    <button onClick={LoginForm}>Log in</button>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<className />} />
+          <Route path='/signup' element={<SignUp />} />
+        </Routes>
+        <nav>
+          <Link to="/">
+            <MyCustomButton>Chat</MyCustomButton>
+          </Link>
+          <Link to="/signup">
+            <MyCustomButton>signup</MyCustomButton>
+          </Link>
+        </nav>
+      </BrowserRouter>
+      
     </header>
     </div>
       <div className='messages'>
@@ -104,6 +128,6 @@ return <div className="App">
       </div>
     </main>
     </div>
-}
+)}
 
 export default App

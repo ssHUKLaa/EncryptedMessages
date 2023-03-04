@@ -42,4 +42,6 @@
   color: white;
   padding-left: 65%;
   margin: 1%;
+  position: sticky;
+  top: 10px;
 }
