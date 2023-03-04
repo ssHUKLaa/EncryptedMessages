@@ -99,7 +99,9 @@ return (
         </ul>
       </div>
       <div className='input-box'>
-        <input placeholder='Type a message...' onChange={e => setMessageText(e.target.value)} value={messageText} />
+      <input placeholder='Type a message...' onChange={e => setMessageText(e.target.value)} value={messageText} onKeyDown={(e) => {
+          if (e.key === 'Enter') sendMessage()
+        }}/>
         <button onClick={sendMessage}>Send</button>
       </div>
     </main>
