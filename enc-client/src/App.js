@@ -74,8 +74,9 @@ function App() {
     return formattedMessages
   }
 
-
-  return <div className="App">
+return (
+  <Router>
+    <div className="App">
     <main>
       <div class = "navtop">
     <header>
@@ -87,7 +88,7 @@ function App() {
         <ul>
           {newMessagesArray().map((msg, index) => [
             <li key={index} className='message'>
-              <img alt='avatar' src={'https://lh3.googleusercontent.com/ogw/AAEL6sgI6f52SZk0LclG50dWphPG30AofHTpbMhi4F-GEQ=s64-c-mo'} />
+              <img alt='avatar' src={msg.avi} />
               <div>
                 {msg.content}
                 <span>{msg.name}</span>
@@ -101,8 +102,9 @@ function App() {
         <button onClick={sendMessage}>Send</button>
       </div>
     </main>
-  </div>
-
+    </div>
+  </Router>
+  );
 }
 
 export default App
