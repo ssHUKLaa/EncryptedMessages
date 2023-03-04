@@ -92,7 +92,7 @@ return (
               <img alt='avatar' src={'https://lh3.googleusercontent.com/ogw/AAEL6sgI6f52SZk0LclG50dWphPG30AofHTpbMhi4F-GEQ=s64-c-mo'} />
               <div>
                 {msg.content}
-                <span>{msg.name}</span>
+                <span>{msg.name}, {msg.timestamp}</span>
               </div>
             </li>
           ])}
