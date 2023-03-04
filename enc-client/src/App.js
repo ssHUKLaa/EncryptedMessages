@@ -77,6 +77,12 @@ function App() {
 
   return <div className="App">
     <main>
+      <div class = "navtop">
+    <header>
+    <a class="cta" href = "#"><button class = "login">Login</button></a>
+    <a class="cta" href = "#"><button class = "signup">Sign Up</button></a>
+    </header>
+    </div>
       <div className='messages'>
         <ul>
           {newMessagesArray().map((msg, index) => [
