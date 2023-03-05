@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import Gun from 'gun';
+<<<<<<< Updated upstream
 import SEA from 'gun/sea';
 import './App.css';
+=======
+import 'gun/sea';
+import { proofOfWork } from './proofOfWork';
+import './Login.css';
+>>>>>>> Stashed changes
 
 class Login extends Component {
   constructor(props) {
