@@ -50,8 +50,6 @@ function App() {
     })
   }, [])
 
-  
-
   const sendMessage = () => { 
     const refMessages = gun.get('MESSAGES')
 
@@ -65,8 +63,6 @@ function App() {
 
     setMessageText('')
   }
-  
- 
   
   // remove duplicate messages
   const newMessagesArray = () => {
@@ -93,7 +89,7 @@ return (
     <header>
       <BrowserRouter>
         <Routes>
-          <Route exact path='sign up' element={<SignUp />} />
+          <Route exact path='/signup' element={<SignUp />} />
         </Routes>
         <Routes>
           <Route exact path='/Login' element={<LoginForm />} />
