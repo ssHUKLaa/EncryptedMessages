@@ -60,6 +60,19 @@ button:hover {
   display: flex;
   overflow-wrap: break-word;
   word-break: break-word;
+  animation: 0.35s linear 0s infinite alternate animating-multiple-properties;
+  animation-iteration-count: 1
+}
+
+@keyframes animating-multiple-properties {
+  from {
+    transform: translateY(110vh);
+    filter: brightness(85%);
+  }
+  to {
+    transform: translateY(0);
+    /* unset properties i.e. 'filter' will revert to default values */
+  }
 }
 
 .messages>ul {
