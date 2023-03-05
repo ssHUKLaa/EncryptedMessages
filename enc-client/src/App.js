@@ -3,9 +3,10 @@ import Gun from 'gun'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {faker} from '@faker-js/faker'
 import './App.css'
-import LoginForm from './Login'
+import Login from './Login'
 import SignUp from './signup'
 import { useNavigate, Routes, Route, BrowserRouter, Link, Switch} from 'react-router-dom';
+import Dashboard from './Dashboard'
 
 
 //were using port 5050
@@ -32,6 +33,7 @@ function MyCustomButton({ children }) {
 function App() {
   const [messageText, setMessageText] = useState('') //setters for initialization
   const [state, dispatch] = useReducer(reducer, currentState) //more setters
+  const [loggedInUser, setLoggedInUser] = useState(null);
   
   /*
   useEffect is loaded with the page, il change this shit to be less
@@ -54,7 +56,7 @@ function App() {
     const refMessages = gun.get('MESSAGES')
 
     const msgObj = {
-      name: faker.name.firstName(),
+      name: loggedInUser,
       avi: faker.image.avatar(),
       content: messageText,
       timestamp: Date().substring(16, 21) //Date includes some worthless info, il play around w this tmrw
@@ -84,6 +86,11 @@ function App() {
 return (
   
   <div className="App">
+    {loggedInUser ? (
+      <Dashboard loggedInUser={loggedInUser} />
+    ) : (
+      <Login setLoggedInUser={setLoggedInUser} />
+    )}
     <main>
       <div class = "navtop">
     <header>
@@ -92,7 +99,7 @@ return (
           <Route exact path='/signup' element={<SignUp />} />
         </Routes>
         <Routes>
-          <Route exact path='/Login' element={<LoginForm />} />
+          <Route exact path='/Login' element={<Login />} />
         </Routes>
         <Routes>
           <Route exact path='/' element={<className />} />
@@ -109,8 +116,8 @@ return (
           </Link>
         </nav>
       </BrowserRouter>
-      
     </header>
+
     </div>
       <div className='messages'>
         <ul>

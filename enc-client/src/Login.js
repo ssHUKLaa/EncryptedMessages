@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Gun from 'gun';
 import 'gun/sea';
+import { proofOfWork } from './proofOfWork';
 
 const gun = Gun();
 const user = gun.user();
 
-function Login() {
+function Login( setLoggedInUser) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginFailed, setLoginFailed] = useState(false);
@@ -24,17 +25,22 @@ function Login() {
       const { encUsername, epub, salt } = existingUser._.sea;
       const encPassword = await Gun.SEA.besecure(password, salt, epub);
       const { username, password } = await decryptCredentials(encUsername, encPassword);
+      
       user.auth(username, password, (ack) => {
         if (ack.err) {
           console.error(ack);
           setLoginFailed(true);
+          const salt = password;
+          const difficulty = 3;
         } else {
           console.log(ack);
         }
+        
       });
     } else {
       setLoginFailed(true);
     }
+    setLoggedInUser(username);
   }
 
   return (
@@ -51,7 +57,7 @@ function Login() {
           Password:
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
-        <button type="submit">Login</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

@@ -20,7 +20,7 @@ function Registration() {
   async function handleRegistration(event) {
     event.preventDefault();
     const { encUsername, encPassword } = await encryptCredentials(username, password);
-    user.create(username, encPassword, (ack) => {
+    user.create(username, password, (ack) => {
       console.log(ack);
       setRegistrationComplete(true);
     }, { alias: encUsername });
@@ -29,7 +29,7 @@ function Registration() {
   return (
     <div>
       {registrationComplete ? (
-        <p>Registration complete.</p>
+        <p>Registration complete. Please check your email to verify your account.</p>
       ) : (
         <form onSubmit={handleRegistration}>
           <label>
