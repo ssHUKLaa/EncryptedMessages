@@ -91,8 +91,6 @@ return (
     <main>
       <div class = "navtop">
     <header>
-    <button onClick={LoginForm}>Sign in</button>
-    <button onClick={LoginForm}>Log in</button>
       <BrowserRouter>
         <Routes>
           <Route exact path='sign up' element={<SignUp />} />
