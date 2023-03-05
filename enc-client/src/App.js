@@ -107,7 +107,7 @@ return (
             <MyCustomButton>Chat</MyCustomButton>
           </Link>
           <Link to="/signup">
-            <MyCustomButton>signup</MyCustomButton>
+            <MyCustomButton>Sign Up</MyCustomButton>
           </Link>
           <Link to="/Login">
             <MyCustomButton>
