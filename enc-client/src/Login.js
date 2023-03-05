@@ -1,66 +1,81 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import Gun from 'gun';
-import 'gun/sea';
-import { proofOfWork } from './proofOfWork';
+import SEA from 'gun/sea';
+import './App.css';
 
-const gun = Gun();
-const user = gun.user();
+class Login extends Component {
+  constructor(props) {
+    super(props);
 
-function Login( setLoggedInUser) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [loginFailed, setLoginFailed] = useState(false);
+    this.state = {
+      username: '',
+      password: '',
+      loggedIn: false,
+      loginError: '',
+    };
 
-  async function decryptCredentials(encUsername, encPassword) {
-    const { priv } = await user.pair();
-    const username = await Gun.SEA.decrypt(encUsername, priv);
-    const password = await Gun.SEA.decrypt(encPassword, priv);
-    return { username, password };
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async function handleLogin(event) {
+  handleUsernameChange(event) {
+    this.setState({ username: event.target.value });
+  }
+
+  handlePasswordChange(event) {
+    this.setState({ password: event.target.value });
+  }
+
+  async handleSubmit(event) {
     event.preventDefault();
-    const existingUser = await user.get(username).then();
-    if (existingUser) {
-      const { encUsername, epub, salt } = existingUser._.sea;
-      const encPassword = await Gun.SEA.besecure(password, salt, epub);
-      const { username, password } = await decryptCredentials(encUsername, encPassword);
-      
-      user.auth(username, password, (ack) => {
-        if (ack.err) {
-          console.error(ack);
-          setLoginFailed(true);
-          const salt = password;
-          const difficulty = 3;
-        } else {
-          console.log(ack);
-        }
-        
-      });
-    } else {
-      setLoginFailed(true);
+
+    const gun = Gun();
+    const user = gun.user();
+
+    try {
+      const encrypted = await user.get(this.state.username).then(encrypted => encrypted);
+      const decrypted = await SEA.decrypt(encrypted, this.state.password);
+      if (decrypted !== this.state.username) {
+        this.setState({ loginError: 'Invalid username or password.' });
+        return;
+      }
+
+      const pair = await SEA.pair();
+      const encryptedPair = await SEA.encrypt(pair, this.state.password);
+      await user.auth(this.state.username, encryptedPair);
+
+      this.setState({ loggedIn: true });
+      this.props.setLoggedInUser(this.state.username);
+    } catch (error) {
+      console.error(error);
+      this.setState({ loginError: 'An error occurred while logging in. Please try again later.' });
     }
-    setLoggedInUser(username);
   }
 
-  return (
-    <div>
-      {loginFailed ? (
-        <p>Login failed. Please check your username and password.</p>
-      ) : null}
-      <form onSubmit={handleLogin}>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  );
+  render() {
+    if (this.state.loggedIn) {
+      return <div>You are logged in as {this.state.username}.</div>;
+    }
+
+    return (
+      <div className="login-form">
+        <h2>Login</h2>
+        {this.state.loginError ? <div className="error">{this.state.loginError}</div> : null}
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <input type="text" id="username" value={this.state.username} onChange={this.handleUsernameChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" value={this.state.password} onChange={this.handlePasswordChange} />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Login;

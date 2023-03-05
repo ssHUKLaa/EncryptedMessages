@@ -88,9 +88,7 @@ return (
   <div className="App">
     {loggedInUser ? (
       <Dashboard loggedInUser={loggedInUser} />
-    ) : (
-      <Login setLoggedInUser={setLoggedInUser} />
-    )}
+    ):
     <main>
       <div class = "navtop">
     <header>
@@ -112,7 +110,9 @@ return (
             <MyCustomButton>signup</MyCustomButton>
           </Link>
           <Link to="/Login">
-            <MyCustomButton>Login</MyCustomButton>
+            <MyCustomButton>
+              Login
+              </MyCustomButton>
           </Link>
         </nav>
       </BrowserRouter>
@@ -123,7 +123,7 @@ return (
         <ul>
           {newMessagesArray().map((msg, index) => [
             <li key={index} className='message'>
-              <img alt='avatar' src={'https://lh3.googleusercontent.com/ogw/AAEL6sgI6f52SZk0LclG50dWphPG30AofHTpbMhi4F-GEQ=s64-c-mo'} />
+              <img alt='avatar' src={'https://i.pinimg.com/originals/f1/0f/f7/f10ff70a7155e5ab666bcdd1b45b726d.jpg'} />
               <div>
                 {msg.content}
                 <span>{msg.name}, {msg.timestamp}</span>
@@ -139,7 +139,7 @@ return (
         <button onClick={sendMessage}>Send</button>
       </div>
     </main>
-    </div>
+    }</div>
 )}
 
 export default App
