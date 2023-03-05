@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Gun from 'gun';
 import 'gun/sea';
+import './signup.css';
 
 const gun = Gun();
 const user = gun.user();
