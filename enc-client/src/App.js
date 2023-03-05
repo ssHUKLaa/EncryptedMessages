@@ -5,7 +5,7 @@ import {faker} from '@faker-js/faker'
 import './App.css'
 import LoginForm from './Login'
 import SignUp from './signup'
-import { useNavigate, Routes, Route, BrowserRouter, Link } from 'react-router-dom';
+import { useNavigate, Routes, Route, BrowserRouter, Link, Switch} from 'react-router-dom';
 
 
 //were using port 5050
@@ -65,6 +65,7 @@ function App() {
 
     setMessageText('')
   }
+  
  
   
   // remove duplicate messages
@@ -81,17 +82,24 @@ function App() {
 
     return formattedMessages
   }
+  
 
 
 return (
+  
   <div className="App">
     <main>
       <div class = "navtop">
     <header>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<className />} />
-          <Route path='/signup' element={<SignUp />} />
+          <Route exact path='sign up' element={<SignUp />} />
+        </Routes>
+        <Routes>
+          <Route exact path='/Login' element={<LoginForm />} />
+        </Routes>
+        <Routes>
+          <Route exact path='/' element={<className />} />
         </Routes>
         <nav>
           <Link to="/">
@@ -99,6 +107,9 @@ return (
           </Link>
           <Link to="/signup">
             <MyCustomButton>signup</MyCustomButton>
+          </Link>
+          <Link to="/Login">
+            <MyCustomButton>Login</MyCustomButton>
           </Link>
         </nav>
       </BrowserRouter>
