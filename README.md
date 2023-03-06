@@ -1,5 +1,5 @@
 # EncryptedMessages
-## This was created as a showcase for HackTheHill, our devpost (with all available background info) is available at: 
+## This was created as a showcase for HackTheHill 2023, our devpost (with all available background info) is available at: 
 > ## https://devpost.com/software/msgme
 
 The project utilized React, GunJS, Routes, NodeJS
