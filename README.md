@@ -4,6 +4,36 @@
 
 The project utilized React, GunJS, Routes, NodeJS
 
+
+
+
+
+
+
+# MsgMe
+
+#### Table of Contents 
+- [Description](#desc)
+- [Usage Guide](#inst)
+  * [Installation](#inst1)
+  * [Demonstration](#demo)
+- [Contributors](#cont)
+- [License](#lics)
+
+<a name="desc"></a>
+## Description
+The main purpose of the app is to permit users to have a seamless experience while chatting with their friends on a secure encrypted network.
+
+The app provides:
+
+A rapid Network Performance
+The ability to send large quantities of data at once
+A smooth experience with an intricate design
+
+<a name="inst"></a>
+## Usage Guide
+<a name="inst1"></a>
+### Installation
 install NodeJS
 > https://nodejs.org/en/
 
@@ -16,3 +46,18 @@ install routes
 install GunJS
 > npm install gun
 
+
+<a name="demo"></a>
+### Demonstration
+
+<!-- ![][calcDemo] -->
+
+<a name="cont"></a>
+## Contributors
+- Michael Haddad : mhadd033@uottawa.ca
+
+<a name="lics"></a>
+## License
+This project is licensed under the GPL-3.0 License. [License Details](../master/LICENSE.md)
+
+<!-- [calcDemo]: ./calcTEST.gif -->
