@@ -42,6 +42,7 @@ install GunJS
 <a name="demo"></a>
 ### Demonstration
 
+Soon...
 <!-- ![][calcDemo] -->
 
 <a name="cont"></a>
