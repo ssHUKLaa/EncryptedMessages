@@ -47,6 +47,9 @@ install GunJS
 <a name="cont"></a>
 ## Contributors
 - Michael Haddad : mhadd033@uottawa.ca
+- Henry Saber : hsabe026@uottawa.ca
+- Sahil Shukla  : 
+- Finley St-Denis : fstde090@uottawa.ca
 
 <a name="lics"></a>
 ## License
