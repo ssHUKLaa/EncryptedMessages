@@ -18,9 +18,9 @@ The main purpose of the app is to permit users to have a seamless experience whi
 
 The app provides:
 
-A rapid Network Performance
-The ability to send large quantities of data at once
-A smooth experience with an intricate design
+- A rapid Network Performance
+- The ability to send large quantities of data at once
+- A smooth experience with an intricate design
 
 <a name="inst"></a>
 ## Usage Guide
