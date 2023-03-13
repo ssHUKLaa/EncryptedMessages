@@ -29,7 +29,8 @@ A smooth experience with an intricate design
 install NodeJS
 > https://nodejs.org/en/
 
-install create-react-app > npm i -g create-react-app
+install create-react-app 
+> npm i -g create-react-app
 
 install routes
 > npm install react-router-dom@6
