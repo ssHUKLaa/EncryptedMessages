@@ -1,16 +1,7 @@
-# EncryptedMessages
+# MsgMe
+
 ## This was created as a showcase for HackTheHill 2023, our devpost (with all available background info) is available at: 
 > ## https://devpost.com/software/msgme
-
-The project utilized React, GunJS, Routes, NodeJS
-
-
-
-
-
-
-
-# MsgMe
 
 #### Table of Contents 
 - [Description](#desc)
@@ -22,6 +13,7 @@ The project utilized React, GunJS, Routes, NodeJS
 
 <a name="desc"></a>
 ## Description
+The project utilized React, GunJS, Routes, NodeJS. 
 The main purpose of the app is to permit users to have a seamless experience while chatting with their friends on a secure encrypted network.
 
 The app provides:
