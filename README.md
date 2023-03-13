@@ -1,6 +1,6 @@
 # MsgMe
 
-## This was created as a showcase for HackTheHill 2023, our devpost (with all available background info) is available at: 
+## This was created as a showcase for HackTheHill 2023, our devpost is available at: 
 > ## https://devpost.com/software/msgme
 
 #### Table of Contents 
