@@ -53,6 +53,6 @@ install GunJS
 
 <a name="lics"></a>
 ## License
-This project is licensed under the GPL-3.0 License. [License Details](../master/LICENSE.md)
+This project is licensed under the GPL-3.0 License. [License Details](../master/LICENSE)
 
 <!-- [calcDemo]: ./calcTEST.gif -->
