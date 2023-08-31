@@ -49,7 +49,7 @@ Soon...
 ## Contributors
 - Michael Haddad : mhadd033@uottawa.ca
 - Henry Saber : hsabe026@uottawa.ca
-- Sahil Shukla  : 
+- Sahil Shukla  : sshuk080@uottawa.ca
 - Finley St-Denis : fstde090@uottawa.ca
 
 <a name="lics"></a>
